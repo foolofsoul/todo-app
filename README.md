@@ -1,4 +1,4 @@
-# drap-app
+# Todo App
 
 ## Project setup
 ```
