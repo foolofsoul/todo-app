@@ -4,12 +4,18 @@
       <ToDoItem :todo="todo" />
     </div>
     <form v-if="newItem">
-      <input type="text" v-model="task" placeholder="Enter a new todo...">
-      <input type="submit" @click="newTodo" value="Add Todo">
+      <input
+        type="text"
+        ref="todoInput"
+        v-model="task"
+        placeholder="Enter a new todo...">
+      <button @click.prevent="newTodo">Add Todo</button>
+      <button @click.prevent="closeTodo">Close</button>
     </form>
     <button v-if="!newItem" @click="addTodoInput">Add New Todo</button>
   </div>
 </template>
+
 
 <script>
 import ToDoItem from './ToDoItem.vue'
@@ -18,6 +24,7 @@ export default {
   components: {
     ToDoItem
   },
+
   data() {
     return {
       todos: [
@@ -37,17 +44,18 @@ export default {
           complete: true
         }
       ],
-      newItem: false
+      newItem: false,
+      task: ""
     }
   },
+
   methods: {
     addTodoInput() {
       this.newItem = true;
+      this.$nextTick(() => this.$refs.todoInput.focus());
     },
-    newTodo(e, task) {
-      e.preventDefault;
 
-      this.newItem = false;
+    newTodo() {
       let todo = {
         id: (this.todos.length + 1),
         task: this.task,
@@ -55,12 +63,22 @@ export default {
       };
 
       this.todos = [...this.todos, todo];
-
       this.task = "";
-    }
+      this.closeTodo();
+    },
+
+    closeTodo() {
+      this.newItem = false;
+    },
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="less"></style>
+<style scoped lang="less">
+  form {
+    display: inline-block;
+    padding: 16px;
+    background-color: #f8fafb;
+  }
+</style>
