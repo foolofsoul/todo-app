@@ -1,17 +1,30 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <!-- router-link -->
     </div>
-    <router-view />
+    <ToDo />
   </div>
 </template>
+
+<script>
+import ToDo from './components/ToDo.vue';
+
+export default {
+  name: 'App',
+  components: {
+    ToDo
+  },
+  data() {
+    return {}
+  }
+}
+</script>
+
 
 <style lang="less">
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
-  text-align: center;
   color: #2c3e50;
 }
 #nav {
