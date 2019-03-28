@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <h1>Boards</h1>
+    <h3>Tasks Completed</h3>
       <!-- router-link -->
     <ToDo />
   </div>
@@ -21,8 +23,7 @@ export default {
 
 
 <style lang="less">
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  color: #2c3e50;
-}
+@import "assets/less/base.less";
+@import "assets/less/buttons.less";
+@import "assets/less/checkbox.less";
 </style>

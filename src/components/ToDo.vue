@@ -3,7 +3,13 @@
     <div :key="todo.id" v-for="todo in todos">
       <ToDoItem :todo="todo" @update-task="updateTask" />
     </div>
-    <button v-if="!newItem" @click="addTodoInput">Add New Todo</button>
+    <button
+      v-if="!newItem"
+      class="button button--action"
+      @click="addTodoInput"
+    >
+      <i class="fas fa-plus"></i>Add Task
+    </button>
     <ToDoInput v-else @close="closeInput" @update-todos="updateTodos"/>
   </div>
 </template>
@@ -67,6 +73,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
   .todo-main {
-    background: gray;
+    background: #ffffff;
+    padding: 32px;
+    border-radius: 4px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.05);
   }
 </style>
