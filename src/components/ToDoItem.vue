@@ -65,7 +65,7 @@ export default {
     width: 100%;
     background-color: #333;
     transform-origin: left;
-    transition: transform .1s ease-in-out;
+    transition: transform .2s ease-in-out .1s;
   }
 }
 </style>
